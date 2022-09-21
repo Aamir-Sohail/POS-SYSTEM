@@ -31,8 +31,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
     Route::resource('/orders','OrderController'); //orders index
     Route::resource('/product','ProductController'); //Product Index
-    Route::resource('/product','Order_DetailsController'); //Product Index
-    Route::resource('/product','CompaniesController'); //Product Index
-    Route::resource('/product','SettingController'); //Product Index
-    Route::resource('/product','SuppliersController'); //Product Index
-    Route::resource('/product','TranscationController'); //Product Index
+    Route::resource('/order_details','Order_DetailsController'); //Product Index
+    Route::resource('/companies','CompaniesController'); //Product Index
+    Route::resource('/setting','SettingController'); //Product Index
+    Route::resource('/supplirs','SuppliersController'); //Product Index
+    Route::resource('/transcation','TranscationController'); //Product Index
