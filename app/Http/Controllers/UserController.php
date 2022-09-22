@@ -36,7 +36,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        $users = User::create($request->all());
+        // $users = User::create($request->all());
+        $users = new User;
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->password = md5($request->password);
+        $users->is_admin = $request->is_admin;
+        $users->save();
         if ($users) {
             return redirect()->back()->with('User is Successfully Save');
         } else {
