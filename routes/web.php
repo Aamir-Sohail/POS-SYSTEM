@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\POS\OrderController;
 use App\Http\Controllers\POS\ProductController;
 use App\Http\Controllers\POS\SettingController;
@@ -29,10 +31,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-    Route::resource('/orders','OrderController'); //orders index
-    Route::resource('/product','ProductController'); //Product Index
-    Route::resource('/order_details','Order_DetailsController'); //Product Index
-    Route::resource('/companies','CompaniesController'); //Product Index
-    Route::resource('/setting','SettingController'); //Product Index
-    Route::resource('/supplirs','SuppliersController'); //Product Index
-    Route::resource('/transcation','TranscationController'); //Product Index
+    Route::resource('/orders',OrderController::class); //orders index
+    Route::resource('/product',ProductController::class); //Product Index
+    Route::resource('/order_details',Order_DetailsController::class); //Order_details Index
+    Route::resource('/companies',CompaniesController::class); //Compaines Index
+    Route::resource('/setting',SettingController::class); //Setting Index
+    Route::resource('/supplirs',SuppliersController::class); //Suppliers Index
+    Route::resource('/transcation',TranscationController::class); //Transcation Index
+    Route::resource('users',UserController::class); //Users Index

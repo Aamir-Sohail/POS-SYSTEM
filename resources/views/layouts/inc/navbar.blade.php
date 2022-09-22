@@ -1,14 +1,14 @@
 
 <a href="#"  data-toggle="modal" data-target="#exampleModal" class="btn btn-outline rounded-pill"><i class="fa fa-list"></i></a>
-<a href="#" class="btn btn-outline rounded-pill"><i class="fa fa-list"></i></a>
-<a href="#" class="btn btn-outline rounded-pill"><i class="fa fa-user fa-lg"></i>Users</a>
-<a href="#" class="btn btn-outline rounded-pill"><i class="fa fa-box fa-lg"></i>Products</a>
-<a href="#" class="btn btn-outline rounded-pill"><i class="fa fa-desktop fa-lg"></i>Cashiers</a>
-<a href="#" class="btn btn-outline rounded-pill"><i class="fa fa-file fa-lg"></i>Reports</a>
-<a href="#" class="btn btn-outline rounded-pill"><i class="fa fa-money-bill fa-lg"></i>Transcations</a>
-<a href="#" class="btn btn-outline rounded-pill"><i class="fa fa-chart"></i>Suppliers</a>
-<a href="#" class="btn btn-outline rounded-pill"><i class="fa fa-users"></i>Customers</a>
-<a href="#" class="btn btn-outline rounded-pill"><i class="fa fa-truck fa-lg"></i>Incoming</a>
+<a href="{{ route('home') }}" class="btn btn-outline rounded-pill"><i class="fa fa-list"></i></a>
+<a href="{{ route('users.index') }} " class="btn btn-outline rounded-pill"><i class="fa fa-user fa-lg"></i>Users</a>
+<a href="{{route('product.index') }}" class="btn btn-outline rounded-pill"><i class="fa fa-box fa-lg"></i>Products</a>
+<a href="{{route('orders.index') }}" class="btn btn-outline rounded-pill"><i class="fa fa-desktop fa-lg"></i>Cashiers</a>
+<a href="" class="btn btn-outline rounded-pill"><i class="fa fa-file fa-lg"></i>Reports</a>
+<a href="" class="btn btn-outline rounded-pill"><i class="fa fa-money-bill fa-lg"></i>Transcations</a>
+<a href="" class="btn btn-outline rounded-pill"><i class="fa fa-chart"></i>Suppliers</a>
+<a href="" class="btn btn-outline rounded-pill"><i class="fa fa-users"></i>Customers</a>
+<a href="" class="btn btn-outline rounded-pill"><i class="fa fa-truck fa-lg"></i>Incoming</a>
 
 
 
