@@ -1,6 +1,6 @@
 
 <a href="#"  data-toggle="modal" data-target="#exampleModal" class="btn btn-outline rounded-pill"><i class="fa fa-list"></i></a>
-<a href="{{ route('home') }}" class="btn btn-outline rounded-pill"><i class="fa fa-list"></i></a>
+<a href="{{ route('home') }}" class="btn btn-outline rounded-pill"><i class="fa fa-home fa-lg" aria-hidden="true"></i>Home</a>
 <a href="{{ route('users.index') }} " class="btn btn-outline rounded-pill"><i class="fa fa-user fa-lg"></i>Users</a>
 <a href="{{route('product.index') }}" class="btn btn-outline rounded-pill"><i class="fa fa-box fa-lg"></i>Products</a>
 <a href="{{route('orders.index') }}" class="btn btn-outline rounded-pill"><i class="fa fa-desktop fa-lg"></i>Cashiers</a>
