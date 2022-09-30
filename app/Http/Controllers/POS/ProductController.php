@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\POS;
-
+use App\Models\POS\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+      $products = Product::paginate('5');
+    return view('products.index',['products' => $products]);
     }
 
     /**
@@ -35,7 +36,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+        Product::create($request->all());
+        return redirect()->back()->with('success','Product is Successfully Save');
     }
 
     /**
@@ -67,9 +70,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        
+        return redirect()->back()->with('success','Product is Successfully Update');
     }
 
     /**
@@ -78,8 +83,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(product $product )
     {
-        //
+        $product->delete();
+        return redirect()->back()->with('success','Product is Successfully delete');
     }
 }

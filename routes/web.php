@@ -32,7 +32,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
     Route::resource('/orders',OrderController::class); //orders index
-    Route::resource('/product',ProductController::class); //Product Index
+    Route::resource('product',ProductController::class); //Product Index
     Route::resource('/order_details',Order_DetailsController::class); //Order_details Index
     Route::resource('/companies',CompaniesController::class); //Compaines Index
     Route::resource('/setting',SettingController::class); //Setting Index
