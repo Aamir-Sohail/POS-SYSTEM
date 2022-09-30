@@ -30,9 +30,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($products as $key => $product)
+                                    @foreach ($products as  $product)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $product->id }}</td>
                                             <td>{{ $product->product_name }}</td>
                                             <td>{{ $product->brand }}</td>
                                             <td>
