@@ -32,7 +32,7 @@
 
                 {{-- navbar section --}}
                 @include('layouts.inc.navbar')
-                
+
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -97,7 +97,8 @@
         </button> --}}
 
         <!-- Modal -->
-        <div class="modal left fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal left fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -107,7 +108,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                     
+
                         @include('layouts.inc.sidebar')
 
                     </div>
@@ -119,30 +120,37 @@
             </div>
         </div>
 
-<style>
-.modal.left .modal-dialog {
+        <style>
+            .modal.left .modal-dialog {
 
-    position: absolute;
-    margin: 0;
-    top: 0;
-    left: 0;
-}
-.modal.left .modal-dialog .modal-sm{
+                position: absolute;
+                margin: 0;
+                top: 0;
+                left: 0;
+            }
 
-    max-width: 300px;
-}
+            .modal.left .modal-dialog .modal-sm {
 
-.modal.left .modal.content{
-    min-height: 100vh;
-    border: 0;
-}
-h4{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-    font-weight: bolder;
-    text-transform: uppercase;
-}
-</style>
+                max-width: 300px;
+            }
+
+            .modal.left .modal.content {
+                min-height: 100vh;
+                border: 0;
+            }
+
+            h4 {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 20px;
+                font-weight: bolder;
+                text-transform: uppercase;
+            }
+
+            .card-header {
+                background: rgb(52, 73, 94);
+                color: #fff
+            }
+        </style>
 
 
     </div>

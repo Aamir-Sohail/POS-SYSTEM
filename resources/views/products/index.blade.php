@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="col-md-12">
             <div class="row d-flex">
                 <div class="col-md-9">
