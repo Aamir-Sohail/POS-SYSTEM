@@ -13,7 +13,10 @@
                                 data-target="#addproduct">
                                 <i class="fa fa-plus"></i>Add New Products</a>
                         </div>
+                        <form action="{{ route('orders.store') }}" method="post">
+                            @csrf
                         <div class="card-body">
+
                             <table class="table table-bordered table-left">
                                 <thead>
                                     <tr>
@@ -72,6 +75,7 @@
 
 
                         </div>
+
                     </div>
                     {{-- </div> --}}
 
@@ -143,13 +147,28 @@
                                         Returning Change
                                         <input type="number" readonly name="balance" id="balance" class="form-control ">
                                     </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-lg btn-block mt-3">
+                                            Save
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger btn-lg btn-block mt-3">
+                                            Calculator
+                                        </button>
+                                    </td>
 
+                      <div class="text-center" style="text-align: center !important">
+<a href="" class="text-danger text-center"><i class="fa fa-sign-out-alt"></i></a>
+                      </div>
                                 </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
+
+            </form>
 
             </div>
 
@@ -255,23 +274,43 @@
             cursor: pointer;
         }
 
-        /* after the change */
-        .radio-item input[type="radio"]:after {
+        /*checked after style */
+        .radio-item input[type="radio"]:checked:after {
             position: relative;
             top: 0;
             left: 9px;
-            margin: 4px -25px -4px 0;
+            border-radius: 6px;
             display: inline-block;
             visibility: visible;
             width: 12px;
             height: 12px;
-            /* border-radius: 10px; */
-            /* border: 2px inset rgb(150, 150, 150, 0.75); */
             background: radial-gradient(ellipse at top left, rgb(240, 255, 220)0%, rgb(225, 250, 100) 5%,
                     rgb(75, 75, 0) 95%, rgb(25, 100, 0) 100%);
             content: ;
             cursor: pointer;
         }
+
+        /* after checked */
+        .radio-item input[type="radio"].true:checked:after {
+            background: radial-gradient(ellipse at top left, rgb(240, 255, 220)0%, rgb(225, 250, 100) 5%,
+                    rgb(75, 75, 0) 95%, rgb(25, 100, 0) 100%);
+        }
+
+        .radio-item input[type="radio"].false:checked:after {
+            background: radial-gradient(ellipse at top left, rgb(255, 255, 255)0%, rgb(250, 250, 250) 5%,
+                    rgb(230, 230, 230) 95%, rgb(225, 225, 225) 100%);
+        }
+
+        .radio-item label {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            line-height: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+
     </style>
 @endsection
 
@@ -330,6 +369,15 @@
             var total_amount = (qty * price) - ((qty * price * disc) / 100);
             tr.find('.total_amount').val(total_amount);
             TotalAmount();
+        });
+
+
+        $('#paid_amount').keyup(function(){
+// alert(1);
+var total = $('.total').html();
+var paid_amount =$(this).val();
+var tot =paid_amount - total;
+$('#balance').val(tot).tofixed(2);
         });
     </script>
 @endsection
