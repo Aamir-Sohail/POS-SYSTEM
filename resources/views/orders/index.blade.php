@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="col-md-12">
             <div class="row d-flex">
-                <div class="col-md-9">
+                <div class="col-md-8">
                     {{-- <div class="row"> --}}
                     <div class="card">
                         <div class="card-header">
@@ -37,6 +37,7 @@
                                         <td>
 
                                             <select name="product_id[]" id="product_id" class="form-control product_id">
+                                                <option value="">Select Items</option>
                                                 @foreach ($products as $product)
                                                     <option data-price="{{ $product->price }}" value="{{ $product->id }}">
                                                         {{ $product->product_name }}
@@ -75,14 +76,77 @@
                     {{-- </div> --}}
 
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
                             <h4> Total <b class="total">0.00</b></h4>
                         </div>
                         <div class="card-body">
 
-                            ......
+                            <div class="panel">
+                                <div class="row">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td>
+                                                <label for="my-input">Customer Name</label>
+
+                                                <input type="text" name="customer_name" id=""
+                                                    class="form-control">
+
+                                            </td>
+                                            <td>
+                                                <label for="my-input">Customer Phone</label>
+
+                                                <input type="number" name="customer_phone" id=""
+                                                    class="form-control">
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <td>
+                                        Payment Method <br>
+
+                                        <span class="radio-item">
+                                            <input type="radio" name="payment_method" id="payment_method" class="true"
+                                                value="Cash" checked="checked">
+                                            <label for="payment_method"><i
+                                                    class="fa fa-money-bill fa-lg text-success"></i>Cash
+                                            </label>
+                                        </span>
+
+                                        <span class="radio-item">
+                                            <input type="radio" name="payment_method" id="payment_method" class="true"
+                                                value="bank transfer" checked="checked">
+                                            <label for="payment_method"><i
+                                                    class="fa fa-university fa-lg text-danger"></i>Bank
+                                                Transfer
+                                            </label>
+                                        </span>
+
+                                        <span class="radio-item">
+                                            <input type="radio" name="payment_method" id="payment_method" class="true"
+                                                value="credit Card" checked="checked">
+                                            <label for="payment_method"><i
+                                                    class="fa fa-credit-card fa-lg text-info"></i>Credit
+                                                Card
+                                            </label>
+                                        </span>
+
+                                    </td><br>
+                                    <td>
+                                        Payment
+                                        <input type="number" name="paid_amount" id="paid_amount" class="form-control ">
+                                    </td>
+
+
+                                    <td>
+                                        Returning Change
+                                        <input type="number" readonly name="balance" id="balance" class="form-control ">
+                                    </td>
+
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -165,6 +229,49 @@
             -webkit-transform: translate3d(25%, 0, 0);
             transform: translate3d(25%, 0, 0, );
         }
+
+        .radio-item input[type="radio"] {
+            visibility: visible;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px 0 5px;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        /* before style */
+        .radio-item input[type="radio"]:before {
+            position: relative;
+            margin: 4px -25px -4px 0;
+            display: inline-block;
+            visibility: visible;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            border: 2px inset rgb(150, 150, 150, 0.75);
+            background: radial-gradient(ellipse at top left, rgb(255, 255, 255)0%, rgb(250, 250, 250) 5%,
+                    rgb(230, 230, 230) 95%, rgb(225, 225, 225) 100%);
+            content: ;
+            cursor: pointer;
+        }
+
+        /* after the change */
+        .radio-item input[type="radio"]:after {
+            position: relative;
+            top: 0;
+            left: 9px;
+            margin: 4px -25px -4px 0;
+            display: inline-block;
+            visibility: visible;
+            width: 12px;
+            height: 12px;
+            /* border-radius: 10px; */
+            /* border: 2px inset rgb(150, 150, 150, 0.75); */
+            background: radial-gradient(ellipse at top left, rgb(240, 255, 220)0%, rgb(225, 250, 100) 5%,
+                    rgb(75, 75, 0) 95%, rgb(25, 100, 0) 100%);
+            content: ;
+            cursor: pointer;
+        }
     </style>
 @endsection
 
@@ -211,6 +318,18 @@
             var price = tr.find('.price').val() - 0;
             var total_amount = (qty * price) - ((qty * price * disc) / 100);
             tr.find('.total_amount').val(total_amount);
-        })
+            TotalAmount();
+        });
+
+        $('.addMoreProduct').delegate('.quantity ,.discount', 'keyup', function() {
+
+            var tr = $(this).parent().parent();
+            var qty = tr.find('.quantity').val() - 0;
+            var qty = tr.find('.discount').val() - 0;
+            var qty = tr.find('.price').val() - 0;
+            var total_amount = (qty * price) - ((qty * price * disc) / 100);
+            tr.find('.total_amount').val(total_amount);
+            TotalAmount();
+        });
     </script>
 @endsection
