@@ -44,6 +44,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->$product_id);
         // return $request->all();
         DB::transaction(function () use ($request) {
             // orders Model...
@@ -51,16 +52,17 @@ class OrderController extends Controller
             $orders->name = $request->customers_name;
             $orders->phone = $request->phone;
             $orders->save();
-            $orders->id = $orders->id;
+            $orders_id = $orders->id;
 // orders details modell....
-            for ($product_id = 0; $product_id < count($request->$product_id); $product_id++) {
+
+            for($product_id = 0; $product_id < count($request->product_id); $product_id++) {
                 $orders_details = new Order_details();
                 // $orders_details->order_id = $request->order_id;
-                $orders_details->order_id = $order_id;
+                $orders_details->order_id = $orders_id;
                 $orders_details->product_id = $request->product_id[$product_id];
-                $orders_details->qauntity = $request->qauntity[$product_id];
-                $orders_details->unitprice = $request->unitprice[$product_id];
-                $orders_details->amount = $request->amount[$product_id];
+                $orders_details->qauntity = $request->quantity[$product_id];
+                $orders_details->unitprice = $request->price[$product_id];
+                $orders_details->amount = $request->total_amount[$product_id];
                 $orders_details->discount = $request->discount[$product_id];
                 $orders_details->save();
             }
@@ -68,7 +70,7 @@ class OrderController extends Controller
 // Transacation model....
             $transcation = new Transcation();
 // $orders_details->order_id = $request->order_id;
-            $transcation->order_id = $order_id;
+            $transcation->order_id = $orders_id;
             $transcation->user_id = auth()->user()->id;
             $transcation->balance = $request->balance;
             $transcation->paid_amount = $request->paid_amount;
@@ -80,11 +82,16 @@ class OrderController extends Controller
      // last order history...
             $product =Product::all();
       
-            $orders_details =  Order_details::where('order_id',$order_id)->get();
-            $orderdBy = order::where('id',$order_id)->get();
+            $orders_details =  Order_details::where('order_id',$orders_id)->get();
+            $orderdBy = order::where('id',$orders_id)->get();
+            return view('orders.index',[
+'products' => $product,
+'order_details' => $orders_details,
+'customer_orders' => $orderdBy 
+            ]);
         });
    
-     
+     return "Product insert fails please check the inputs!";
     }
 
     /**

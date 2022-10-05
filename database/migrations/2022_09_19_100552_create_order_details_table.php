@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('order_id');
             $table->integer('product_id');
-            $table->integer('quantity');
+            $table->integer('qauntity');
             $table->integer('unitprice');
             $table->integer('amount');
             $table->integer('discount');

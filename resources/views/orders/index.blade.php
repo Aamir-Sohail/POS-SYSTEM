@@ -14,7 +14,7 @@
                                 <i class="fa fa-plus"></i>Add New Products</a>
                         </div>
                         <form action="{{ route('orders.store') }}" method="post">
-                            @csrf
+                           @csrf
                         <div class="card-body">
 
                             <table class="table table-bordered table-left">
@@ -111,7 +111,7 @@
                                         Payment Method <br>
 
                                         <span class="radio-item">
-                                            <input type="radio" name="payment_method" id="payment_method" class="true"
+                                            <input type="radio" name="payment_methode" id="payment_method" class="true"
                                                 value="Cash" checked="checked">
                                             <label for="payment_method"><i
                                                     class="fa fa-money-bill fa-lg text-success"></i>Cash
@@ -119,7 +119,7 @@
                                         </span>
 
                                         <span class="radio-item">
-                                            <input type="radio" name="payment_method" id="payment_method" class="true"
+                                            <input type="radio" name="payment_methode" id="payment_method" class="true"
                                                 value="bank transfer" checked="checked">
                                             <label for="payment_method"><i
                                                     class="fa fa-university fa-lg text-danger"></i>Bank
@@ -128,7 +128,7 @@
                                         </span>
 
                                         <span class="radio-item">
-                                            <input type="radio" name="payment_method" id="payment_method" class="true"
+                                            <input type="radio" name="payment_methode" id="payment_method" class="true"
                                                 value="credit Card" checked="checked">
                                             <label for="payment_method"><i
                                                     class="fa fa-credit-card fa-lg text-info"></i>Credit
