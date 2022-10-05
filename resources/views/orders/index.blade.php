@@ -14,67 +14,61 @@
                                 <i class="fa fa-plus"></i>Add New Products</a>
                         </div>
                         <form action="{{ route('orders.store') }}" method="post">
-                           @csrf
-                        <div class="card-body">
+                            @csrf
+                            <div class="card-body">
 
-                            <table class="table table-bordered table-left">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Product Name</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Discount (%)</th>
-                                        <th>Total</th>
-                                        <th>
-                                            <a href="#" class="btn btn-success add_more rounded-circle">
-                                                <i class="fa fa-plus">
-                                                </i>
-                                            </a>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="addMoreProduct">
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
+                                <table class="table table-bordered table-left">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Product Name</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>Discount (%)</th>
+                                            <th>Total</th>
+                                            <th>
+                                                <a href="#" class="btn btn-success add_more rounded-circle">
+                                                    <i class="fa fa-plus">
+                                                    </i>
+                                                </a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="addMoreProduct">
+                                        <tr>
+                                            {{-- @foreach ($products as $product) --}}
+                                            <td>1</td>
+                                            {{-- @endforeach --}}
 
-                                            <select name="product_id[]" id="product_id" class="form-control product_id">
-                                                <option value="">Select Items</option>
-                                                @foreach ($products as $product)
-                                                    <option data-price="{{ $product->price }}" value="{{ $product->id }}">
-                                                        {{ $product->product_name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="quantity[]" id="quantity" class="form-control">
-                                        </td>
+                                            <td>
 
-                                        <td>
-                                            <input type="number" name="price[]" id="price" class="form-control">
-                                        </td>
+                                                <select name="product_id[]" id="product_id" class="form-control product_id">
+                                                    <option value="">Select Items</option>
+                                                    @foreach ($products as $product)
+                                                        <option data-price="{{ $product->price }}"
+                                                            value="{{ $product->id }}">
+                                                            {{ $product->product_name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </td>
+                                            
 
-                                        <td>
-                                            <input type="number" name="discount[]" id="discount" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="total_amount[]" id="total_amount"
-                                                class="form-control">
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-danger rounded-circle"><i
-                                                    class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                            <td> <input type ="number" name="quantity[]" class="form-control quantity"> </td>
+                                             <td> <input type ="number" name="price[]" class="form-control price"> </td> 
+                                             <td> <input type ="number" name="discount[]" class="form-control discount"> </td>
+                                             <td> <input type ="number" name="total_amount[]" class="form-control total_amount"> </td>
+                                           <td>
+                                                <a href="#" class="btn btn-danger sm delete rounded-circle"><i class="fa fa-times-circle"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
 
 
-                            </table>
+                                </table>
 
 
-                        </div>
+                            </div>
 
                     </div>
                     {{-- </div> --}}
@@ -158,9 +152,10 @@
                                         </button>
                                     </td>
 
-                      <div class="text-center" style="text-align: center !important">
-<a href="" class="text-danger text-center"><i class="fa fa-sign-out-alt"></i></a>
-                      </div>
+                                    <div class="text-center" style="text-align: center !important">
+                                        <a href="" class="text-danger text-center"><i
+                                                class="fa fa-sign-out-alt"></i></a>
+                                    </div>
                                 </div>
 
                             </div>
@@ -168,7 +163,7 @@
                     </div>
                 </div>
 
-            </form>
+                </form>
 
             </div>
 
@@ -177,7 +172,8 @@
     </div>
 
     {{-- modal for add new product --}}
-    <div class="modal right fade" id="addproduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal right fade" id="addproduct" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -309,8 +305,6 @@
             height: 25px;
             cursor: pointer;
         }
-
-
     </style>
 @endsection
 
@@ -372,12 +366,12 @@
         });
 
 
-        $('#paid_amount').keyup(function(){
-// alert(1);
-var total = $('.total').html();
-var paid_amount =$(this).val();
-var tot =paid_amount - total;
-$('#balance').val(tot).tofixed(2);
+        $('#paid_amount').keyup(function() {
+            // alert(1);
+            var total = $('.total').html();
+            var paid_amount = $(this).val();
+            var tot = paid_amount - total;
+            $('#balance').val(tot).tofixed(2);
         });
     </script>
 @endsection
