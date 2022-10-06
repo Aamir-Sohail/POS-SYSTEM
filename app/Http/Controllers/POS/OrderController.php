@@ -91,7 +91,7 @@ class OrderController extends Controller
             ]);
         });
    
-     return back()->with('Product insert fails please check the inputs!');
+     return back()->with("Product insert fails please check the inputs!");
     }
 
     /**
