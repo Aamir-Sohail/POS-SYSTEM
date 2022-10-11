@@ -52,14 +52,18 @@
                                                     @endforeach
                                                 </select>
                                             </td>
-                                            
 
-                                            <td> <input type ="number" name="quantity[]" class="form-control quantity"> </td>
-                                             <td> <input type ="number" name="price[]" class="form-control price"> </td> 
-                                             <td> <input type ="number" name="discount[]" class="form-control discount"> </td>
-                                             <td> <input type ="number" name="total_amount[]" class="form-control total_amount"> </td>
-                                           <td>
-                                                <a href="#" class="btn btn-danger sm delete rounded-circle"><i class="fa fa-times-circle"></i></a>
+
+                                            <td> <input type="number" name="quantity[]" class="form-control quantity">
+                                            </td>
+                                            <td> <input type="number" name="price[]" class="form-control price"> </td>
+                                            <td> <input type="number" name="discount[]" class="form-control discount">
+                                            </td>
+                                            <td> <input type="number" name="total_amount[]"
+                                                    class="form-control total_amount"> </td>
+                                            <td>
+                                                <a href="#" class="btn btn-danger sm delete rounded-circle"><i
+                                                        class="fa fa-times-circle"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -80,7 +84,20 @@
                             <h4> Total <b class="total">0.00</b></h4>
                         </div>
                         <div class="card-body">
+                            {{-- button group for the receipt --}}
+                            <div class="btn-group">
+                                <button type="button" onclick="PrintReceiptContent('print')" class="bt btn-dark">
+                                    <i class="fa fa-print "></i> Print
+                                </button>
 
+                                <button type="button" onclick="PrintReceiptContent('print')" class="bt btn-primary">
+                                    <i class="fa fa-print "></i> History
+                                </button>
+
+                                <button type="button" onclick="PrintReceiptContent('print')" class="bt btn-danger">
+                                    <i class="fa fa-print "></i> Reports
+                                </button>
+                            </div>
                             <div class="panel">
                                 <div class="row">
                                     <table class="table table-striped">
@@ -139,7 +156,8 @@
 
                                     <td>
                                         Returning Change
-                                        <input type="number" readonly name="balance" id="balance" class="form-control ">
+                                        <input type="number" readonly name="balance" id="balance"
+                                            class="form-control ">
                                     </td>
                                     <td>
                                         <button class="btn btn-primary btn-lg btn-block mt-3">
@@ -228,6 +246,14 @@
         </div>
     </div>
 
+
+
+    <div class="modal">
+        <div id="print">
+            @include('reports.recept')
+
+        </div>
+    </div>
 
 
 
@@ -373,5 +399,26 @@
             var tot = paid_amount - total;
             $('#balance').val(tot).tofixed(2);
         });
+
+
+
+        //print section.....
+        function PrintReceiptContent(el) {
+            var data = '<input type ="button" id="printPageButton '+
+                'class =" printPageButton "  style="display: block; '+
+                'width= "100%";  border:none; background-color:#008B8B; color: #fff '+
+                'padding: 14px 28px; font-size: 16px; cursor:pointer; text-align:center'+
+                'value= "Print Receipt"" onclick= "window.print()">';
+            data += document.getElementById(el).innerHTML;
+            myReceipt = window.open("", "myWin , left=150, top=130 , width=400, hei ght=400");
+            myReceipt = screnX = 0;
+            myReceipt = screnY = 0;
+            myReceipt.document.write(data);
+            myReceipt.document.title = "Print Receipt";
+            myReceipt.focus();
+            setTimeout(() => {
+                myReceipt.close();
+            }, 8000);
+        }
     </script>
 @endsection
