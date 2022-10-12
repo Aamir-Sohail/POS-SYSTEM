@@ -45,6 +45,10 @@
                             <h2>Sub Total</h2>
                         </td>
                     </tr>
+
+{{-- foreach loop for the real data --}}
+
+
                     <tr class="service">
                         <td class="tableitem">
                             <p class="itemtext">Mango</p>
