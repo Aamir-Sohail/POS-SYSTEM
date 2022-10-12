@@ -250,7 +250,7 @@
 
     <div class="modal">
         <div id="print">
-            @include('reports.recept')
+            @include('reports.receipt');
 
         </div>
     </div>
@@ -403,22 +403,40 @@
 
 
         //print section.....
+        // function PrintReceiptContent(el){
+        //     var data = '<input type ="button" id="printPageButton '+
+        //         'class =" printPageButton "  style="display: block; '+
+        //         'width= "100%";  border:none; background-color:#008B8B; color: #fff '+
+        //         'padding: 14px 28px; font-size: 16px; cursor:pointer; text-align:center'+
+        //         'value= "Print Receipt"" onclick= "window.print()">';
+        //     data += document.getElementById(el).innerHTML;
+        //     myReceipt = window.open("", "myWin , left=150, top=130 , width=400, hei ght=400");
+        //     myReceipt = screnX = 0;
+        //     myReceipt = screnY = 0;
+        //     myReceipt.document.write(data);
+        //     myReceipt.document.title = "Print Receipt";
+        //     myReceipt.focus();
+        //     setTimeout(() => {
+        //         myReceipt.close();
+        //     }, 8000);
+        // }
         function PrintReceiptContent(el) {
             var data = '<input type ="button" id="printPageButton '+
                 'class =" printPageButton "  style="display: block; '+
                 'width= "100%";  border:none; background-color:#008B8B; color: #fff '+
                 'padding: 14px 28px; font-size: 16px; cursor:pointer; text-align:center'+
                 'value= "Print Receipt"" onclick= "window.print()">';
-            data += document.getElementById(el).innerHTML;
-            myReceipt = window.open("", "myWin , left=150, top=130 , width=400, hei ght=400");
-            myReceipt = screnX = 0;
-            myReceipt = screnY = 0;
-            myReceipt.document.write(data);
-            myReceipt.document.title = "Print Receipt";
-            myReceipt.focus();
-            setTimeout(() => {
+                data += document.getElementById(el).innerHTML;
+                myReceipt = window.open("" , "myWin" ,"left=150, top=130, width=400, height=400");
+                myReceipt.screnX =0;
+                myReceipt.screnY =0;
+                myReceipt.document.write(data);
+                myReceipt.document.title ="Print Receipt";
+                myReceipt.focus();
+                setTimeout(() => {
                 myReceipt.close();
             }, 8000);
+
         }
     </script>
 @endsection
