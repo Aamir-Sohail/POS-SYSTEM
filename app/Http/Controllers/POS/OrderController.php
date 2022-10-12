@@ -23,7 +23,11 @@ class OrderController extends Controller
         $products = Product::all();
         // dd($products); //ok
         $orders = Order::all();
-        return view('orders.index', compact('products', 'orders'));
+  //last order details....
+  $lastID = Order_details::max('order_id');
+  $orders_receipt =  Order_details::where('order_id',  $lastID)->get();
+// dd($orders_receipt);
+        return view('orders.index', compact('products', 'orders','orders_receipt'));
     }
 
     /**
@@ -81,16 +85,17 @@ class OrderController extends Controller
 
      // last order history...
             $product =Product::all();
-      
+
             $orders_details =  Order_details::where('order_id',$orders_id)->get();
+
             $orderdBy = order::where('id',$orders_id)->get();
             return view('orders.index',[
 'products' => $product,
 'order_details' => $orders_details,
-'customer_orders' => $orderdBy 
+'customer_orders' => $orderdBy
             ]);
         });
-   
+
      return back()->with("Product insert fails please check the inputs!");
     }
 

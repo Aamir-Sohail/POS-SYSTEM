@@ -2,8 +2,11 @@
 
 namespace App\Models\POS;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use App\Models\POS\Order;
+// use App\Models\POS\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order_details extends Model
 {
@@ -11,4 +14,15 @@ class Order_details extends Model
     protected $fillable =[
         'order_id','product_id','qauntity','unitprice','amount','discount'
     ];
+
+    
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
+    
+    public function order()
+    {
+        return $this->belongsTo('App\Order');
+    }
 }

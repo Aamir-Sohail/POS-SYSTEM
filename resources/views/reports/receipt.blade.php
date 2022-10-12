@@ -48,10 +48,12 @@
 
 {{-- foreach loop for the real data --}}
 
+@foreach ($orders_receipt as $receipt)
+
 
                     <tr class="service">
                         <td class="tableitem">
-                            <p class="itemtext">Mango</p>
+                            <p class="itemtext">{{ $receipt->product->name }}</p>
                         </td>
                         <td class="tableitem">
                             <p class="itemtext">20</p>
@@ -66,6 +68,8 @@
                             <p class="itemtext">$ 100</p>
                         </td>
                     </tr>
+                    @endforeach
+
                     <tr class="tabletitle">
                         <td></td>
                         <td></td>

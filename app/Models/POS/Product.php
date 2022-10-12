@@ -11,4 +11,9 @@ class Product extends Model
 
     protected $fillable =['product_name', 'price','description','brand','quantity','alert_stock'];
 
+
+    public function orderdetails()
+    {
+        return $this->hasMany('App\Order_details');
+    }
 }
