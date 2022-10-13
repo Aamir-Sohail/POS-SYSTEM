@@ -15,14 +15,14 @@ class Order_details extends Model
         'order_id','product_id','qauntity','unitprice','amount','discount'
     ];
 
-    
+
     public function product()
     {
-        return $this->belongsTo('App\Product');
+        return $this->belongsTo('App\Models\POS\Product');
     }
-    
+
     public function order()
     {
-        return $this->belongsTo('App\Order');
+        return $this->belongsTo('App\Models\POS\Order');
     }
 }

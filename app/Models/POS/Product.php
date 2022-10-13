@@ -14,6 +14,6 @@ class Product extends Model
 
     public function orderdetails()
     {
-        return $this->hasMany('App\Order_details');
+        return $this->hasMany('App\Models\POS\Order_details');
     }
 }

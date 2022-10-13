@@ -53,19 +53,19 @@
 
                     <tr class="service">
                         <td class="tableitem">
-                            <p class="itemtext">{{ $receipt->product->name }}</p>
+                            <p class="itemtext">{{ $receipt->product->product_name }}</p>
                         </td>
                         <td class="tableitem">
-                            <p class="itemtext">20</p>
+                            <p class="itemtext">{{ number_format($receipt->unitprice, 2) }}</p>
                         </td>
                         <td class="tableitem">
-                            <p class="itemtext">$ 5</p>
+                            <p class="itemtext">{{ $receipt->quantity }}</p>
                         </td>
                         <td class="tableitem">
-                            <p class="itemtext">0</p>
+                            <p class="itemtext">{{ $receipt->discount ? '' : '0' }}</p>
                         </td>
                         <td class="tableitem">
-                            <p class="itemtext">$ 100</p>
+                            <p class="itemtext">{{ $receipt->quantity }}</p>
                         </td>
                     </tr>
                     @endforeach
