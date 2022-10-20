@@ -21,9 +21,10 @@
 
                             {{--  new   --}}
                             <div class="my-2">
-                                {{ $product_code }}
-                                <input type="text" name="" wire:model="product_code" id=""
+                              <form wire:click.submit="InsertoCart">
+                                <input type="text" name="" wire:model="product_code" wire:keydown.enter="alert(1)" id=""
                                     class="form-control" placeholder="Enter Product Code">
+                                </form>
                             </div>
 
 

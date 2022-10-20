@@ -11,6 +11,14 @@ class Order extends Component
     public function mount(){
         $this->products = Product::all();
     }
+
+public function InsertoCart()
+{
+$countproduct = Product::where('id',$this->product_code)->get();
+dd($countproduct);
+}
+
+
     public function render()
     {
 
