@@ -14,7 +14,7 @@ class Order extends Component
 
 public function InsertoCart()
 {
-$countproduct = Product::where('id',$this->product_code)->get();
+$countproduct = Product::where('id' , $this->product_code)->get();
 dd($countproduct);
 }
 

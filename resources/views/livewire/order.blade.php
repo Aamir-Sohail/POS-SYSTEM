@@ -14,75 +14,75 @@
                             data-target="#addproduct">
                             <i class="fa fa-plus"></i>Add New Products</a>
                     </div>
-                    <form action="{{ route('orders.store') }}" method="post">
-                        @csrf
-                        <div class="card-body">
+                    {{--  <form action="{{ route('orders.store') }}" method="post">
+                        @csrf  --}}
+                    <div class="card-body">
 
 
-                            {{--  new   --}}
-                            <div class="my-2">
-                              <form wire:click.submit="InsertoCart">
-                                <input type="text" name="" wire:model="product_code" wire:keydown.enter="alert(1)" id=""
+                        {{--  new   --}}
+                        <div class="my-2">
+                            <form wire:submit.prevent="InsertoCart">
+                                <input type="text" name="" wire:model="product_code" id=""
                                     class="form-control" placeholder="Enter Product Code">
-                                </form>
-                            </div>
-
-
-                            <table class="table table-bordered table-left">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Product Name</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Discount (%)</th>
-                                        <th>Total</th>
-                                        <th>
-                                            <a href="#" class="btn btn-success add_more rounded-circle">
-                                                <i class="fa fa-plus">
-                                                </i>
-                                            </a>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="addMoreProduct">
-                                    <tr>
-                                        {{-- @foreach ($products as $product) --}}
-                                        <td>1</td>
-                                        {{-- @endforeach --}}
-
-                                        <td>
-
-                                            <select name="product_id[]" id="product_id" class="form-control product_id">
-                                                <option value="">Select Items</option>
-                                                @foreach ($products as $product)
-                                                    <option data-price="{{ $product->price }}" value="{{ $product->id }}">
-                                                        {{ $product->product_name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </td>
-
-
-                                        <td> <input type="number" name="quantity[]" class="form-control quantity">
-                                        </td>
-                                        <td> <input type="number" name="price[]" class="form-control price"> </td>
-                                        <td> <input type="number" name="discount[]" class="form-control discount">
-                                        </td>
-                                        <td> <input type="number" name="total_amount[]" class="form-control total_amount">
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-danger sm delete rounded-circle"><i
-                                                    class="fa fa-times-circle"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-
-                            </table>
-
-
+                            </form>
                         </div>
+
+
+                        <table class="table table-bordered table-left">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Discount (%)</th>
+                                    <th>Total</th>
+                                    <th>
+                                        <a href="#" class="btn btn-success add_more rounded-circle">
+                                            <i class="fa fa-plus">
+                                            </i>
+                                        </a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="addMoreProduct">
+                                <tr>
+                                    {{-- @foreach ($products as $product) --}}
+                                    <td>1</td>
+                                    {{-- @endforeach --}}
+
+                                    <td>
+
+                                        <select name="product_id[]" id="product_id" class="form-control product_id">
+                                            <option value="">Select Items</option>
+                                            @foreach ($products as $product)
+                                                <option data-price="{{ $product->price }}" value="{{ $product->id }}">
+                                                    {{ $product->product_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+
+
+                                    <td> <input type="number" name="quantity[]" class="form-control quantity">
+                                    </td>
+                                    <td> <input type="number" name="price[]" class="form-control price"> </td>
+                                    <td> <input type="number" name="discount[]" class="form-control discount">
+                                    </td>
+                                    <td> <input type="number" name="total_amount[]" class="form-control total_amount">
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger sm delete rounded-circle"><i
+                                                class="fa fa-times-circle"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
 
                 </div>
                 {{-- </div> --}}
