@@ -26,8 +26,7 @@
                                     class="form-control" placeholder="Enter Product Code">
                             </form>
                         </div>
-
-
+                        {{ $productIncart }
                         <table class="table table-bordered table-left">
                             <thead>
                                 <tr>

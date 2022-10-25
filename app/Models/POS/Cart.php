@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     Protected $table = "carts";
-    Protected $fillable = ['product_id'];
+    Protected $fillable = ['product_id','product_qty' ,'product_price','user_id'];
 }
