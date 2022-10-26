@@ -8,7 +8,7 @@ use App\Models\POS\Product;
 
 class Order extends Component
 {
-    public $orders , $products =[], $product_code , $message ='' ,$productIncart;
+    public $orders , $products =[] , $prodoct_code , $message ='' ,$productIncart;
     public function mount(){
         $this->products = Product::all();
         $this->productIncart = Cart::all();
@@ -22,7 +22,7 @@ if (!$countproduct) {
 
 }
 $countCartProduct = Cart::where('product_id',$this->product_code)->count();
-if ($countCartProduct == 0) {
+if ($countCartProduct > 0) {
     return $this->message = 'Product ' . $countproduct->product_name .' already exists in the carts please add quantity';
 }
 

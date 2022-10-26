@@ -19,7 +19,9 @@
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
     @livewireStyles
+
 </head>
 
 <body>
@@ -168,4 +170,5 @@
     @livewireScripts
 </body>
 @yield('script')
+
 </html>

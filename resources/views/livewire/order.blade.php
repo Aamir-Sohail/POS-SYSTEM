@@ -14,15 +14,16 @@
                             data-target="#addproduct">
                             <i class="fa fa-plus"></i>Add New Products</a>
                     </div>
-                    {{--  <form action="{{ route('orders.store') }}" method="post">
-                        @csrf  --}}
+                    {{--  <form action="{{ route('orders.store') }}" method="post">  --}}
+                        @csrf
                     <div class="card-body">
 
 
                         {{--  new   --}}
                         <div class="my-2">
                             <form wire:submit.prevent="InsertoCart">
-                                <input type="text" name="" wire:model="product_code" id=""
+                                {{ $prodoct_code  }}
+                                <input type="text" name="" wire:model ="prodoct_code" id=""
                                     class="form-control" placeholder="Enter Product Code">
                             </form>
                         </div>
